@@ -1,0 +1,174 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  tags?: string;
+  github?: string;
+  live?: string;
+  href?: string;
+}
+
+const { title, body, tags, github, live, href } = Astro.props;
+---
+
+<div class="border-2 border-gray-700 border-zinc-900">
+  <slot />
+  <div class="p-5">
+    {
+      href && (
+        <a href={href}>
+          <h5
+            transition:name="project-title"
+            class="industry mb-2 text-2xl font-bold tracking-tight text-white underline"
+          >
+            {title}
+          </h5>
+        </a>
+      )
+    }
+    {
+      !href && (
+        <h5
+          transition:name="project-title"
+          class="mb-2 text-2xl font-bold tracking-tight text-white industry"
+        >
+          {title}
+        </h5>
+      )
+    }
+
+    <p class="mt-4 text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">{body}</p>
+    {
+      href && (
+        <a
+          href={href}
+          class="mt-6 inline-flex items-center font-medium text-sm px-5 py-2.5 industry font-medium text-center text-white bg-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800 bg-zinc-800"
+        >
+          Read more
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      )
+    }
+    {
+      live && (
+        <a
+          href={live}
+          class="mt-6 inline-flex items-center font-medium text-sm px-5 py-2.5 industry font-medium text-center text-white bg-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800 bg-zinc-800"
+        >
+          Demo
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      )
+    }
+    {
+      github && (
+        <a
+          href={github}
+          class="mt-6 inline-flex items-center font-medium text-sm px-5 py-2.5 industry font-medium text-center text-white bg-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800 bg-zinc-800"
+        >
+          GitHub
+          <svg
+            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .link-card {
+    list-style: none;
+    display: flex;
+  }
+  .link-card > div {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.25;
+    border-radius: 8px 8px 0 0;
+    color: white;
+    opacity: 1;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    font-family: "IndustryBlack", sans-serif !important;
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    /* background-image: var(--accent-gradient); */
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    /* color: rgb(var(--accent-light)); */
+  }
+  .projects-column {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    grid-gap: 1rem;
+  }
+  .tags {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  .link-group {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    grid-gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .projects-column {
+      display: block;
+      max-width: 100%;
+    }
+    .projects-column > div:nth-child(1) {
+      margin-bottom: 1rem;
+    }
+  }
+</style>

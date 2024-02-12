@@ -1,0 +1,101 @@
+---
+import Social from "./Social.astro";
+const formSpreeURL = "";
+---
+
+<div id="contact">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+    <h2 class="font-bold text-3xl m-0 mb-2">Contact Me</h2>
+    <form id="my-form"
+      action={formSpreeURL}
+      method="POST"
+      class="space-y-8"
+    >
+      <div>
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-300"
+          >Your email</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="shadow-sm text-sm   block w-full p-2.5 bg-zinc-900  dark:placeholder-gray-400 text-white  dark:shadow-sm-light"
+          placeholder="name@aol.com"
+          required
+        />
+      </div>
+      <div class="sm:col-span-2">
+        <label
+          for="message"
+          class="block mb-2 text-sm font-medium text-gray-300"
+          >Your message</label
+        >
+        <textarea
+          name="message"
+          id="message"
+          rows="6"
+          class="block p-2.5 w-full text-sm shadow-sm  border-gray-300 bg-zinc-900 dark:border-black dark:placeholder-gray-400 text-white"
+          placeholder="Leave a comment..."></textarea>
+      </div>
+      <button id="my-form-button"
+        type="submit"
+        class="text-black bg-stone-100 hover:bg-stone-200 focus:ring-4 focus:ring-stone-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2 dark:hover:bg-stone-200 focus:outline-none dark:focus:ring-blue-600 industry focus:ring-4 focus:outline-none focus:ring-white-300"
+        >Send message</button
+      >
+      <p id="my-form-status"></p>
+    </form>
+  </div>
+  <div class="flex justify-center mb-16">
+    <Social />
+  </div>
+</div>
+
+<style>
+  form {
+    padding: 20px 0;
+  }
+  label {
+    display: block;
+  }
+  h2{
+        font-family: "IndustryBlack", sans-serif !important;
+    }
+</style>
+
+<script is:inline>
+
+var form = document.getElementById("my-form");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset();
+        } else {
+          response.json().then((data) => {
+            if (Object.hasOwn(data, "errors")) {
+              status.innerHTML = data["errors"]
+                .map((error) => error["message"])
+                .join(", ");
+            } else {
+              status.innerHTML =
+                "Oops! There was a problem submitting your form";
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        status.innerHTML = "Oops! There was a problem submitting your form";
+      });
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>

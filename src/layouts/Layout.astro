@@ -1,0 +1,216 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const siteDescription = "Site description HERE";
+const siteTitle = "Developer Portfolio";
+const siteURL = "https://www.something.com";
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={siteDescription} />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!--OG tags -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteURL} />
+
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:site_name" content={siteTitle} />
+
+    <!--Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={siteDescription} />
+    <meta name="twitter:image" content="" />
+
+    <link
+      rel="preload"
+      href="/IndustryBold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+
+    <style is:global>
+      main {
+        animation: fadein 2s;
+      }
+      @font-face {
+        font-family: IndustryBlack;
+        src: url("/IndustryBold.otf") format("opentype");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "IndustryBlack", sans-serif !important;
+      }
+      .industry {
+        font-family: "IndustryBlack", sans-serif !important;
+      }
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        ,
+        50% {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      :root {
+        --font-mono: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        --accent: 124, 204, 250;
+        --accent-light: 0, 240, 155;
+        --accent-dark: 49, 49, 249;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent-dark)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      input {
+        border-radius: 0;
+      }
+
+      input[type="search"] {
+        -webkit-appearance: none;
+      }
+
+      main {
+        max-width: calc(100% - 2rem);
+        color: white;
+        width: 1100px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      .container {
+        width: 1100px;
+        padding: 1rem;
+        margin: auto;
+      }
+      .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+        font-size: 2.75rem;
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-size: 224px;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+
+      header {
+        max-width: 100%;
+        height: auto;
+      }
+      main {
+        color: white;
+
+        line-height: 1.6;
+      }
+      video {
+        max-width: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      h1 {
+        margin-top: 0.25rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .spinner {
+        display: block;
+        animation: fadeout 1s;
+      }
+      .card {
+        display: none;
+      }
+
+      #dotone {
+        animation: blink 1s infinite;
+      }
+      #dottwo {
+        animation: blink 1s infinite;
+        animation-delay: 0.25s;
+      }
+      #dotthree {
+        animation: blink 1s infinite;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframe fadeout {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+  </body>
+</html>

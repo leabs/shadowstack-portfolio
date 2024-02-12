@@ -1,0 +1,233 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Card from "../components/Card.astro";
+import Heading from "../components/Heading.astro";
+import CustomImageScroll from "../components/CustomImageScroll.astro";
+import CTA from "../components/CTA.astro";
+import Contact from "../components/Contact.astro";
+
+//Professional Work Components
+import Anaren from "../components/Anaren.astro";
+//Project Components
+import Python from "../components/Python.astro";
+---
+
+<Layout title="Web Developer Portfolio">
+  <div id="contents">
+    <main class="container">
+      <div class="mb-16">
+        <Heading />
+        <p
+          class="mt-4 text-lg text-zinc-500 dark:text-zinc-400 font-light lg:text-xl"
+        >
+          I create engaging internet projects and content, drawing from my
+          experience in freelance web development. My work spans across various
+          clients, from individuals and startups to large companies. If you
+          believe I can contribute to your business, please don't hesitate to <a
+            href="#contact"
+            class="underline text-gray-300">reach out</a
+          >.
+        </p>
+      </div>
+      <div class="mb-16">
+        <h2
+          class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white"
+        >
+          Content Creation
+        </h2>
+        <p class="mt-4 text-lg text-zinc-500 dark:text-zinc-400">
+          I make <a
+            href="https://www.youtube.com/@shadowstack"
+            target="_blank"
+            class="underline text-gray-300">YouTube</a
+          > videos on web development, including projects I'm currently working on.
+        </p>
+        <CustomImageScroll />
+      </div>
+
+      <h2
+        class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white mb-2"
+      >
+        Professional Work
+      </h2>
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="">
+          <Card
+            href="anaren"
+            title="Anaren.com"
+            body="A Drupal website for the space and defense company, featuring pages for their different divisions and product lines. It also includes extensive DataTables integration for their product catalog."
+            tags="Drupal, PHP, JavaScript, CSS, HTML"
+          >
+            <div style="max-width:100%">
+              <Anaren />
+            </div>
+          </Card>
+        </div>
+        <div class="">
+          <Card
+            href="anaren"
+            title="Anaren.com"
+            body="A Drupal website for the space and defense company, featuring pages for their different divisions and product lines. It also includes extensive DataTables integration for their product catalog."
+            tags="Drupal, PHP, JavaScript, CSS, HTML"
+          >
+            <div style="max-width:100%">
+              <Anaren />
+            </div>
+          </Card>
+        </div>
+        <div class="">
+          <Card
+            href="anaren"
+            title="Anaren.com"
+            body="A Drupal website for the space and defense company, featuring pages for their different divisions and product lines. It also includes extensive DataTables integration for their product catalog."
+            tags="Drupal, PHP, JavaScript, CSS, HTML"
+          >
+            <div style="max-width:100%">
+              <Anaren />
+            </div>
+          </Card>
+        </div>
+      </div>
+      <div class="my-8 bg-black">
+        <CTA />
+      </div>
+      <h2
+        class="text-3xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white mb-2"
+      >
+        Fun Projects
+      </h2>
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="">
+          <Card
+            title="Misc Python Apps"
+            body="Miscellaneous Python applications and scripts I've made to help me learn Python and to use as productivity tools or save me time."
+            tags="Python"
+            github="https://github.com/leabs/misc-python-apps"
+          >
+            <Python />
+          </Card>
+        </div>
+        <div class="">
+          <Card
+            title="Misc Python Apps"
+            body="Miscellaneous Python applications and scripts I've made to help me learn Python and to use as productivity tools or save me time."
+            tags="Python"
+            github="https://github.com/leabs/misc-python-apps"
+          >
+            <Python />
+          </Card>
+        </div>
+        <div class="">
+          <Card
+            title="Misc Python Apps"
+            body="Miscellaneous Python applications and scripts I've made to help me learn Python and to use as productivity tools or save me time."
+            tags="Python"
+            github="https://github.com/leabs/misc-python-apps"
+          >
+            <Python />
+          </Card>
+        </div>
+      </div>
+      <div class="my-8">
+        <Contact />
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style is:global>
+  main {
+    margin: auto;
+    padding: 0.75rem;
+    width: 1100px;
+    max-width: 100%;
+    color: white;
+    line-height: 1.6;
+  }
+  .project-image {
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  .project-cards {
+  }
+  .video-wrapper {
+    background: #111111;
+    padding: calc(1.5rem - 1px);
+    line-height: 1.4;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  .project-column > div {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .projects-alt > li {
+    gap: 1rem !important;
+  }
+  .astro-a {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 220px;
+    height: auto;
+    z-index: -1;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    font-size: 2.75rem;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    gap: 0;
+    padding: 0;
+  }
+  .read-more {
+    color: #fff;
+  }
+  details {
+    position: relative;
+    top: -1px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    max-width: 900px;
+  }
+  details > div {
+    max-width: 830px;
+  }
+
+  summary:hover {
+    cursor: pointer;
+  }
+</style>
+
+<script></script>

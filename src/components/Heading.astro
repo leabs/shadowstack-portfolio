@@ -1,0 +1,44 @@
+---
+import Social from "./Social.astro";
+import Avatar from "../components/Avatar.astro";
+---
+<div class="grid">
+<div class="heading-container">
+  <a href="/">
+    <span class="sr-only">Home</span>
+    <Avatar />
+  </a>
+  <div class="social-icons">
+    <Social />
+  </div>
+</div>
+</div>
+
+<style>
+  .heading-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  h1 {
+    font-family: "IndustryBlack", sans-serif !important;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      margin-bottom: 0;
+    }
+    .heading-container{
+      grid-template-columns: 1fr;
+    }
+    
+    .social-icons {
+      justify-content: left;
+    }
+  }
+</style>

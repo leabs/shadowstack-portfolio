@@ -1,0 +1,139 @@
+---
+import { Image } from "astro:assets";
+
+import thumb from "../assets/python2.png";
+
+const cards = [
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+  {
+    title: "13 Python Scripts I Use",
+    imagealt: "13 Python Scripts I Use thumbnail",
+    image: thumb,
+    href: "https://www.youtube.com/watch?v=R2KZsakOS8c",
+  },
+];
+---
+
+<div class="flex my-4 items-center justify-center">
+  <div class="relative w-full overflow-hidden">
+    <!-- For some reason the white vignette effect don't work in this sandbox but if you uncomment the following lines in VSCode, they should work -->
+
+    <div class="block">
+      <div
+        class="pointer-events-none absolute -top-1 z-10 h-20 w-full bg-gradient-to-b from-zinc-950 to-transparent"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -bottom-1 z-10 h-20 w-full bg-gradient-to-t from-zinc-950 to-transparent"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -left-1 z-10 h-full w-20 bg-gradient-to-r from-zinc-950 to-transparent"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -right-1 z-10 h-full w-20 bg-gradient-to-l from-zinc-950 to-transparent"
+      >
+      </div>
+    </div>
+
+    <div
+      id="scroller"
+      class="mx-auto grid h-[450px] w-[300px] animate-skew-scroll grid-cols-1 gap-5 sm:w-[750px] sm:grid-cols-2"
+    >
+      <!-- These are all the same components - if you're using React, you can use a map to iterate through all of them -->
+      {
+        cards.map((card) => (
+          <a
+            target="_blank"
+            href={card.href}
+            class="cursor-pointer items-center bg-zinc-900 space-x-2 p-4 shadow-md transition-all hover:-translate-y-1 hover:translate-x-1 hover:scale-[1.025] hover:shadow-xl"
+          >
+            <div class="flex-shrink-0">
+              <Image
+                loading="eager"
+                src={card.image}
+                alt={card.imagealt}
+                class="mb-4 border  border-black"
+                densities={[0.5, 1, 3]}
+              />
+            </div>
+            <div class="flex flex-col">
+              <h3 class="font-semibold text-white">{card.title}</h3>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<style></style>
+<script>
+  //On screens lower than 640px, animation skew-scroll should translateY(-830%)
+  //On screens higher than 640px, animation skew-scroll should translateY(-430%)
+</script>
