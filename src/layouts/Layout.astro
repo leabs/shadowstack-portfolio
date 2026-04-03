@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 interface Props {
   title: string;
 }
@@ -65,19 +67,6 @@ const siteURL = "https://www.something.com";
       }
       .industry {
         font-family: "IndustryBlack", sans-serif !important;
-      }
-
-      @keyframes fadein {
-        0% {
-          opacity: 0;
-        }
-        ,
-        50% {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
       }
     </style>
   </head>
@@ -203,7 +192,7 @@ const siteURL = "https://www.something.com";
         }
       }
 
-      @keyframe fadeout {
+      @keyframes fadeout {
         from {
           opacity: 1;
         }
